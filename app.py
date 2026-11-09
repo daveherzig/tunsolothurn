@@ -40,6 +40,22 @@ def finish():
     st.stop()
 
 
+def merge_records(existing, incoming) -> list:
+    merged = []
+    seen = set()
+    for records in (existing, incoming):
+        if records is None:
+            continue
+        if not isinstance(records, list):
+            records = [records]
+        for record in records:
+            signature = json.dumps(record, sort_keys=True, separators=(",", ":"))
+            if signature not in seen:
+                merged.append(record)
+                seen.add(signature)
+    return merged
+
+
 def render_record(record_slot, entries: list[dict]) -> None:
     if record_slot is None:
         return
@@ -85,7 +101,15 @@ else:
     source = st.session_state.get("data_source", "REST service")
 
 
-records = None
+if "loaded_records" not in st.session_state:
+    previous_records = merge_records(
+        st.session_state.get("rest_records"),
+        st.session_state.get("uploaded_records"),
+    )
+    if previous_records:
+        st.session_state["loaded_records"] = previous_records
+
+records = st.session_state.get("loaded_records")
 try:
     if view is None and source == "Upload file":
         uploaded = st.file_uploader(
@@ -94,21 +118,23 @@ try:
             key=f"uploader_{st.session_state.get('uploader_version', 0)}",
         )
         if uploaded is not None:
-            st.session_state["uploaded_records"] = json.load(uploaded)
-        records = st.session_state.get("uploaded_records")
+            st.session_state["loaded_records"] = merge_records(
+                records, json.load(uploaded)
+            )
+        records = st.session_state.get("loaded_records")
     elif view is None:
         url = st.text_input("REST service URL", value="https://v002253.fhnw.ch/retrieve", placeholder="https://example.com/api/data")
         if st.button("Fetch data", disabled=not url):
             with st.spinner("Fetching data..."):
                 resp = requests.get(url, timeout=30)
                 resp.raise_for_status()
-                st.session_state["rest_records"] = resp.json()
+                st.session_state["loaded_records"] = merge_records(
+                    records, resp.json()
+                )
             st.session_state.update(view=None, selected=None)
-        records = st.session_state.get("rest_records")
-    elif source == "Upload file":
-        records = st.session_state.get("uploaded_records")
+        records = st.session_state.get("loaded_records")
     else:
-        records = st.session_state.get("rest_records")
+        records = st.session_state.get("loaded_records")
 except requests.RequestException as e:
     st.error(f"REST call failed: {e}")
     finish()
@@ -210,6 +236,7 @@ render_record(record_slot, entries)
 
 if view is None or selected not in set(df["name"]):
     if st.button("Clear data", help="Remove all loaded data from the table"):
+        st.session_state.pop("loaded_records", None)
         st.session_state.pop("rest_records", None)
         st.session_state.pop("uploaded_records", None)
         st.session_state["uploader_version"] = st.session_state.get("uploader_version", 0) + 1
