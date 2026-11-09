@@ -1,0 +1,199 @@
+[ {
+  "accuracy" : 3,
+  "data" : [ -0.09451649, 7.8849487, 5.764908 ],
+  "device" : "realme RMX5011",
+  "friendlyTimeStamp" : "2026-10-15 16:49:39.984",
+  "name" : "",
+  "sensorId" : "bmi26x Accelerometer Non-wakeup",
+  "sensorType" : 1,
+  "timestamp" : 135296624304202
+}, {
+  "accuracy" : 3,
+  "data" : [ -3.2853456, 4.467998, 1.189831 ],
+  "device" : "realme RMX5011",
+  "friendlyTimeStamp" : "2026-10-15 16:49:42.819",
+  "name" : "",
+  "sensorId" : "bmi26x Accelerometer Non-wakeup",
+  "sensorType" : 1,
+  "timestamp" : 135299460198369
+}, {
+  "accuracy" : 3,
+  "data" : [ 0.91405827, 8.1015, 5.7451673 ],
+  "device" : "realme RMX5011",
+  "friendlyTimeStamp" : "2026-10-15 16:49:40.997",
+  "name" : "",
+  "sensorId" : "bmi26x Accelerometer Non-wakeup",
+  "sensorType" : 1,
+  "timestamp" : 135297637249046
+}, {
+  "accuracy" : 3,
+  "data" : [ -1.4895321, 6.0311093, 2.0889342 ],
+  "device" : "realme RMX5011",
+  "friendlyTimeStamp" : "2026-10-15 16:49:42.415",
+  "name" : "",
+  "sensorId" : "bmi26x Accelerometer Non-wakeup",
+  "sensorType" : 1,
+  "timestamp" : 135299055061233
+}, {
+  "accuracy" : 3,
+  "data" : [ -6.573682, 6.3218374, 6.0119667 ],
+  "device" : "realme RMX5011",
+  "friendlyTimeStamp" : "2026-10-15 16:49:42.009",
+  "name" : "",
+  "sensorId" : "bmi26x Accelerometer Non-wakeup",
+  "sensorType" : 1,
+  "timestamp" : 135298650063994
+}, {
+  "accuracy" : 3,
+  "data" : [ -0.45822555, 7.819146, 6.096314 ],
+  "device" : "realme RMX5011",
+  "friendlyTimeStamp" : "2026-10-15 16:49:41.401",
+  "name" : "",
+  "sensorId" : "bmi26x Accelerometer Non-wakeup",
+  "sensorType" : 1,
+  "timestamp" : 135298042252171
+}, {
+  "accuracy" : 3,
+  "data" : [ -0.64247286, 8.794222, 4.13061 ],
+  "device" : "realme RMX5011",
+  "friendlyTimeStamp" : "2026-10-15 16:49:43.022",
+  "name" : "",
+  "sensorId" : "bmi26x Accelerometer Non-wakeup",
+  "sensorType" : 1,
+  "timestamp" : 135299662885192
+}, {
+  "accuracy" : 3,
+  "data" : [ 1.0875379, 8.094321, 6.0807605 ],
+  "device" : "realme RMX5011",
+  "friendlyTimeStamp" : "2026-10-15 16:49:40.592",
+  "name" : "",
+  "sensorId" : "bmi26x Accelerometer Non-wakeup",
+  "sensorType" : 1,
+  "timestamp" : 135297232115035
+}, {
+  "accuracy" : 3,
+  "data" : [ -0.36011982, 7.989635, 5.619544 ],
+  "device" : "realme RMX5011",
+  "friendlyTimeStamp" : "2026-10-15 16:49:41.199",
+  "name" : "",
+  "sensorId" : "bmi26x Accelerometer Non-wakeup",
+  "sensorType" : 1,
+  "timestamp" : 135297839808056
+}, {
+  "accuracy" : 3,
+  "data" : [ -1.538585, 7.3860455, 5.4795637 ],
+  "device" : "realme RMX5011",
+  "friendlyTimeStamp" : "2026-10-15 16:49:40.794",
+  "name" : "",
+  "sensorId" : "bmi26x Accelerometer Non-wakeup",
+  "sensorType" : 1,
+  "timestamp" : 135297434551233
+}, {
+  "accuracy" : 3,
+  "data" : [ 0.028115666, 8.68475, 4.582854 ],
+  "device" : "realme RMX5011",
+  "friendlyTimeStamp" : "2026-10-15 16:49:43.832",
+  "name" : "",
+  "sensorId" : "bmi26x Accelerometer Non-wakeup",
+  "sensorType" : 1,
+  "timestamp" : 135300473014046
+}, {
+  "accuracy" : 3,
+  "data" : [ 0.10767702, 7.8520474, 5.8337016 ],
+  "device" : "realme RMX5011",
+  "friendlyTimeStamp" : "2026-10-15 16:49:40.186",
+  "name" : "",
+  "sensorId" : "bmi26x Accelerometer Non-wakeup",
+  "sensorType" : 1,
+  "timestamp" : 135296826971389
+}, {
+  "accuracy" : 3,
+  "data" : [ -1.0815558, 8.5016985, 4.511069 ],
+  "device" : "realme RMX5011",
+  "friendlyTimeStamp" : "2026-10-15 16:49:43.224",
+  "name" : "",
+  "sensorId" : "bmi26x Accelerometer Non-wakeup",
+  "sensorType" : 1,
+  "timestamp" : 135299865331129
+}, {
+  "accuracy" : 3,
+  "data" : [ -0.20997019, 8.170293, 5.800202 ],
+  "device" : "realme RMX5011",
+  "friendlyTimeStamp" : "2026-10-15 16:49:41.807",
+  "name" : "",
+  "sensorId" : "bmi26x Accelerometer Non-wakeup",
+  "sensorType" : 1,
+  "timestamp" : 135298447377223
+}, {
+  "accuracy" : 3,
+  "data" : [ -0.02632105, 7.7162547, 6.0323057 ],
+  "device" : "realme RMX5011",
+  "friendlyTimeStamp" : "2026-10-15 16:49:40.389",
+  "name" : "",
+  "sensorId" : "bmi26x Accelerometer Non-wakeup",
+  "sensorType" : 1,
+  "timestamp" : 135297029528473
+}, {
+  "accuracy" : 3,
+  "data" : [ 0.21535404, 8.519645, 4.162315 ],
+  "device" : "realme RMX5011",
+  "friendlyTimeStamp" : "2026-10-15 16:49:43.630",
+  "name" : "",
+  "sensorId" : "bmi26x Accelerometer Non-wakeup",
+  "sensorType" : 1,
+  "timestamp" : 135300270615348
+}, {
+  "accuracy" : 3,
+  "data" : [ -0.12981063, 7.9256268, 5.645267 ],
+  "device" : "realme RMX5011",
+  "friendlyTimeStamp" : "2026-10-15 16:49:39.578",
+  "name" : "",
+  "sensorId" : "bmi26x Accelerometer Non-wakeup",
+  "sensorType" : 1,
+  "timestamp" : 135296219174775
+}, {
+  "accuracy" : 3,
+  "data" : [ 0.44207397, 10.786844, 3.2129626 ],
+  "device" : "realme RMX5011",
+  "friendlyTimeStamp" : "2026-10-15 16:49:42.617",
+  "name" : "",
+  "sensorId" : "bmi26x Accelerometer Non-wakeup",
+  "sensorType" : 1,
+  "timestamp" : 135299257624983
+}, {
+  "accuracy" : 3,
+  "data" : [ -0.07597212, 7.9244304, 5.8875403 ],
+  "device" : "realme RMX5011",
+  "friendlyTimeStamp" : "2026-10-15 16:49:39.781",
+  "name" : "",
+  "sensorId" : "bmi26x Accelerometer Non-wakeup",
+  "sensorType" : 1,
+  "timestamp" : 135296421840035
+}, {
+  "accuracy" : 3,
+  "data" : [ 2.0434706, 7.0247293, 2.9856443 ],
+  "device" : "realme RMX5011",
+  "friendlyTimeStamp" : "2026-10-15 16:49:42.212",
+  "name" : "",
+  "sensorId" : "bmi26x Accelerometer Non-wakeup",
+  "sensorType" : 1,
+  "timestamp" : 135298852671077
+}, {
+  "accuracy" : 3,
+  "data" : [ -0.5814559, 7.812566, 5.858826 ],
+  "device" : "realme RMX5011",
+  "friendlyTimeStamp" : "2026-10-15 16:49:41.604",
+  "name" : "",
+  "sensorId" : "bmi26x Accelerometer Non-wakeup",
+  "sensorType" : 1,
+  "timestamp" : 135298244923681
+}, {
+  "accuracy" : 3,
+  "data" : [ 0.029910283, 9.241679, 6.5928245 ],
+  "device" : "realme RMX5011",
+  "friendlyTimeStamp" : "2026-10-15 16:49:43.427",
+  "name" : "",
+  "sensorId" : "bmi26x Accelerometer Non-wakeup",
+  "sensorType" : 1,
+  "timestamp" : 135300068014150
+} ]
