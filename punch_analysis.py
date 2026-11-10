@@ -206,19 +206,19 @@ def hourly_record(entries: list[dict], now: pd.Timestamp, exclude_name: str | No
 # ---------------------------------------------------------------------------
 HERO_LEVELS = {
     "Männlich": [
-        (750, "Superman"),
-        (600, "Ironman"),
-        (500, "Deadpool"),
-        (350, "Wolverine"),
-        (200, "Batman"),
+        (900, "Superman"),
+        (800, "Ironman"),
+        (700, "Deadpool"),
+        (500, "Wolverine"),
+        (250, "Batman"),
         (0, "Spiderman"),
     ],
     "Weiblich": [
-        (750, "Wonder Woman"),
-        (600, "She-Hulk"),
-        (500, "Captain Marvel"),
-        (350, "Catwoman"),
-        (200, "Gamora"),
+        (900, "Wonder Woman"),
+        (800, "She-Hulk"),
+        (700, "Captain Marvel"),
+        (500, "Catwoman"),
+        (250, "Gamora"),
         (0, "Black Widow"),
     ],
 }
