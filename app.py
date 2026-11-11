@@ -81,6 +81,56 @@ def render_record(record_slot, entries: list[dict]) -> None:
         )
 
 
+@st.fragment(run_every=5)
+def rest_fetch_controls(url: str) -> None:
+    with st.container(
+        horizontal=True, gap="xxsmall", vertical_alignment="center"
+    ):
+        clear_clicked = st.button(
+            "Clear data", help="Remove all loaded data from the table", width="content"
+        )
+        fetch_clicked = st.button("Fetch data", disabled=not url, width="content")
+        auto_fetch = st.checkbox(
+            "fetch automatically", value=True, key="auto_fetch", width="content"
+        )
+    if clear_clicked:
+        st.session_state.pop("loaded_records", None)
+        st.session_state.pop("rest_records", None)
+        st.session_state.pop("uploaded_records", None)
+        st.session_state["uploader_version"] = (
+            st.session_state.get("uploader_version", 0) + 1
+        )
+        st.session_state.update(view=None, selected=None)
+        st.rerun()
+
+    now = time.monotonic()
+    last_fetch = st.session_state.get("last_rest_fetch")
+    auto_fetch_due = (
+        auto_fetch and bool(url) and (last_fetch is None or now - last_fetch >= 5)
+    )
+
+    if not fetch_clicked and not auto_fetch_due:
+        return
+
+    try:
+        with st.spinner("Fetching data..."):
+            resp = requests.get(url, timeout=30)
+            resp.raise_for_status()
+            incoming = resp.json()
+    except requests.RequestException as e:
+        st.error(f"REST call failed: {e}")
+        return
+    except (json.JSONDecodeError, ValueError) as e:
+        st.error(f"Response is not valid JSON: {e}")
+        return
+
+    st.session_state["loaded_records"] = merge_records(
+        st.session_state.get("loaded_records"), incoming
+    )
+    st.session_state["last_rest_fetch"] = time.monotonic()
+    st.rerun()
+
+
 view = st.session_state.get("view")
 record_slot = None
 
@@ -124,14 +174,7 @@ try:
         records = st.session_state.get("loaded_records")
     elif view is None:
         url = st.text_input("REST service URL", value="https://v002253.fhnw.ch/retrieve", placeholder="https://example.com/api/data")
-        if st.button("Fetch data", disabled=not url):
-            with st.spinner("Fetching data..."):
-                resp = requests.get(url, timeout=30)
-                resp.raise_for_status()
-                st.session_state["loaded_records"] = merge_records(
-                    records, resp.json()
-                )
-            st.session_state.update(view=None, selected=None)
+        rest_fetch_controls(url)
         records = st.session_state.get("loaded_records")
     else:
         records = st.session_state.get("loaded_records")
@@ -235,7 +278,9 @@ render_record(record_slot, entries)
 
 
 if view is None or selected not in set(df["name"]):
-    if st.button("Clear data", help="Remove all loaded data from the table"):
+    if source == "Upload file" and st.button(
+        "Clear data", help="Remove all loaded data from the table"
+    ):
         st.session_state.pop("loaded_records", None)
         st.session_state.pop("rest_records", None)
         st.session_state.pop("uploaded_records", None)
