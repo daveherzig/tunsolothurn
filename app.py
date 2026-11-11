@@ -281,10 +281,6 @@ with st.container(horizontal=True, gap="xxsmall"):
         st.rerun()
 
 if view == "punch":
-    st.markdown(
-        f"<h2 style='text-align:center'>🥊 Boxautomat: {selected or '(no name)'}</h2>",
-        unsafe_allow_html=True,
-    )
     person_df = df[df["name"] == selected]
     acc = accel_frame(person_df)
     best, punches = best_punch(person_df)
@@ -294,20 +290,26 @@ if view == "punch":
 
     score = int(best["score"])
 
+    score_col, hero_col = st.columns(2, vertical_alignment="center")
+    score_col.markdown(
+        f"<h2 style='text-align:center'>🥊 Boxautomat: {selected or '(no name)'}</h2>",
+        unsafe_allow_html=True,
+    )
     # Hochzählen wie an einem echten Automaten
-    screen = st.empty()
+    screen = score_col.empty()
     steps = 30
     for i in range(1, steps + 1):
         screen.markdown(display_html(int(score * i / steps)), unsafe_allow_html=True)
         time.sleep(0.03)
-    st.progress(score / 999)
+    score_col.progress(score / 999)
     gender = st.session_state.get("punch_gender", "Männlich")
     hero = superhero_for(score, gender)
-    st.markdown(
+    hero_col.markdown(
         f"<h1 style='text-align:center;font-weight:bold'>{hero}</h1>"
         f"<div style='display:flex;justify-content:center'>{hero_icon_html(hero)}</div>",
         unsafe_allow_html=True,
     )
+    st.divider()
     levels = HERO_LEVELS[gender]
     score_ranges = [
         f"{hero_name} {limit}–{levels[index - 1][0] - 1 if index else 999}"
